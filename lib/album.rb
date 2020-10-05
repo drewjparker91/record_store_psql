@@ -2,12 +2,9 @@ class Album
   attr_accessor :name
   attr_reader :id
 
-  @@albums = {}
-  @@total_rows = 0
-
   def initialize(attributes)
     @name = attributes.fetch(:name)
-    @id = attributes.fetch(:id) || @@total_rows += 1
+    @id = attributes.fetch(:id)
   end
 
   def self.all
