@@ -39,8 +39,8 @@ class Album
   end
 
   def update(name)
-    self.name = name
-    @@albums[self.id] = Album.new({ :name => self.name, :id => self.id })
+    @name = name
+    DB.exec("UPDATE albums SET name = '#{@name}' WHERE id = #{@id};")
   end
 
   def delete
