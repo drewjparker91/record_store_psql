@@ -2,21 +2,21 @@ require 'spec_helper'
 
 describe '#Album' do
 
-#   describe('.all') do
-#     it("returns an empty array when there are no albums") do
-#       expect(Album.all).to(eq([]))
-#     end
-#   end
+  describe('.all') do
+    it("returns an empty array when there are no albums") do
+      expect(Album.all).to(eq([]))
+    end
+  end
 
-#   describe('#save') do
-#     it("saves an album") do
-#       album = Album.new({:name => "A Love Supreme", :id => nil})
-#       album.save()
-#       album2 = Album.new({:name => "Blue", :id => nil})
-#       album2.save()
-#       expect(Album.all).to(eq([album, album2]))
-#     end
-#   end
+  describe('#save') do
+    it("saves an album") do
+      album = Album.new({:name => "A Love Supreme", :id => nil})
+      album.save()
+      album2 = Album.new({:name => "Blue", :id => nil})
+      album2.save()
+      expect(Album.all).to(eq([album, album2]))
+    end
+  end
 
   describe('.clear') do
     it("clears all albums") do
@@ -67,15 +67,15 @@ describe '#Album' do
     end
   end
 
-#   describe('#songs') do
-#     it("returns an album's songs") do
-#       album = Album.new({:name => "A Love Supreme", :id => nil})
-#       album.save()
-#       song = Song.new({:name => "Naima", :album_id => album.id, :id => nil})
-#       song.save()
-#       song2 = Song.new({:name => "Cousin Mary", :album_id => album.id, :id => nil})
-#       song2.save()
-#       expect(album.songs).to(eq([song, song2]))
-#     end
-#   end
+  describe('#songs') do
+    it("returns an album's songs") do
+      album = Album.new({:name => "A Love Supreme", :id => nil})
+      album.save()
+      song = Song.new({:name => "Naima", :album_id => album.id, :id => nil})
+      song.save()
+      song2 = Song.new({:name => "Cousin Mary", :album_id => album.id, :id => nil})
+      song2.save()
+      expect(album.songs).to(eq([song, song2]))
+    end
+  end
 end
