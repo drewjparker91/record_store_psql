@@ -24,7 +24,11 @@ class Album
   end
 
   def ==(album_to_compare)
-    self.name() == album_to_compare.name()
+    if album_to_compare != nil
+      self.name() == album_to_compare.name()
+    else
+      false
+    end
   end
 
   def self.clear
@@ -33,9 +37,13 @@ class Album
 
   def self.find(id)
     album = DB.exec("SELECT * FROM albums WHERE id = #{id};").first
-    name = album.fetch("name")
-    id = album.fetch("id").to_i
-    Album.new({:name => name, :id => id})
+    if album
+      name = album.fetch("name")
+      id = album.fetch("id").to_i
+      Album.new({:name => name, :id => id})
+    else
+      nil
+    end
   end
 
   def update(name)
@@ -45,6 +53,7 @@ class Album
 
   def delete
     DB.exec("DELETE FROM albums WHERE id = #{@id};")
+    DB.exec("DELETE FROM songs WHERE album_id = #{@id};")
   end
 
   def songs

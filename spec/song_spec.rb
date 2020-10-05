@@ -96,4 +96,17 @@ describe '#Song' do
       expect(song.album()).to(eq(@album))
     end
   end
+
+  describe ('.sort_album') do
+    it("orders songs by name alphabetically") do
+      song5 = Song.new({:name => "Naima", :album_id => @album.id, :id => nil})
+      song5.save()
+      song6 = Song.new({:name => "California", :album_id => @album.id, :id => nil})
+      song6.save()
+      song7 = Song.new({:name => "Big Chungus", :album_id => @album.id, :id => nil})
+      song7.save()
+      songs = [song5, song6, song7]
+      expect(songs.sort_album()).to(eq([song5, song6, song7]))
+    end
+  end
 end
