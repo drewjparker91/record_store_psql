@@ -75,7 +75,7 @@ class Song
     Album.find(@album_id)
   end
 
-  def self.sort_album()
-    DB.exec("SELECT * FROM songs ORDER BY name ASC;")
-  end
+  # def self.sort_album()
+  #   DB.exec("SELECT * FROM songs ORDER BY name ASC;")
+  # end
 end
