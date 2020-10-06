@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/reloader')
 require('./lib/album')
 require('./lib/song')
+require('./lib/artist')
 require('pry')
 require('pg')
 also_reload('lib/**/*.rb')
@@ -79,6 +80,10 @@ end
 get ('/artists') do
   @artists = Artist.all
   erb(:artists)
+end
+
+get ('/artists/new') do
+  erb(:new_artist)
 end
 
 get ('/artists/:id') do

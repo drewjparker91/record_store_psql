@@ -10,7 +10,7 @@
 
 <% if @artists.any? %>
   <ul>
-    <% @artits.each do |artist| %>
+    <% @artists.each do |artist| %>
       <li><a href="/artists/<%= artist.id %>"><%= artist.name %></a></li>
     <% end %>
   </ul>
