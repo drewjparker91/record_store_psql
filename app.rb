@@ -32,7 +32,7 @@ get ('/albums/:id') do
   @album = Album.find(params[:id].to_i())
   erb(:album)
 end
-#
+
 get ('/albums/:id/edit') do
   @album = Album.find(params[:id].to_i())
   erb(:edit_album)
@@ -75,4 +75,34 @@ delete ('/albums/:id/songs/:song_id') do
   @album = Album.find(params[:id].to_i())
   erb(:album)
 end
+
+get ('/artists') do
+  @artists = Artist.all
+  erb(:artists)
+end
+
+get ('/artists/:id') do
+  @artists = Artist.find(params[:id].to_i())
+  erb(:artist)
+end
+
+post ('/artists') do
+  name = params[:artist_name]
+  artist = Artist.new({:name => name, :id => nil})
+  artist.save()
+  redirect to('/artists')
+end
+
+patch ('/artists/:id') do
+  @artist = Album.find(params[:id].to_i())
+  @artist.update(params[:name])
+  redirect to('/artists')
+end
+
+delete ('/artists/:id') do
+  @artist = Artist.find(params[:id].to_i())
+  @artist.delete()
+  redirect to('/artists')
+end
+
 

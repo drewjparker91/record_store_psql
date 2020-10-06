@@ -1,5 +1,5 @@
 class Album
-  attr_accessor :name, :album_id
+  attr_accessor :name, :album_id, :artist_id
   attr_reader :id
 
   def initialize(attributes)

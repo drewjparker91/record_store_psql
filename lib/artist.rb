@@ -1,9 +1,9 @@
 
 class Artist
   attr_reader :id
-  attr_accessor :name
+  attr_accessor :name 
+  # :album_id
   # :artist_id
-  #  :album_id
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
@@ -64,10 +64,9 @@ class Artist
     @id = result.first().fetch("id").to_i
   end
 
-  def delete()
-    DB.exec("DELETE FROM artists WHERE id = #{@id}")
-    DB.exec("DELETE FROM albums WHERE id = #{@id};")
-    DB.exec("DELETE FROM songs WHERE album_id = #{@id};")
+  def delete
+    DB.exec("DELETE FROM albums_artists WHERE artist_id = #{@id};")
+    DB.exec("DELETE FROM artists WHERE id = #{@id};")
   end
 
   def albums

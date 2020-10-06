@@ -1,6 +1,6 @@
 class Song
   attr_reader :id
-  attr_accessor :name, :album_id, :artist_id
+  attr_accessor :name, :album_id
 
   def initialize(attributes)
     @name = attributes.fetch(:name)

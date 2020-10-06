@@ -74,18 +74,6 @@ describe '#Artist' do
   end
 end
 
-  describe('#songs') do
-    it("returns an artist's songs") do
-      artist = Artist.new({:name => "Outkast", :id => nil})
-      artist.save()
-      song = Song.new({:name => "Naima", :artist_id => artist.id, :id => nil})
-      song.save()
-      song2 = Song.new({:name => "Cousin Mary", :artist_id => artist.id, :id => nil})
-      song2.save()
-      expect(artist.songs).to(eq([song, song2]))
-    end
-  end
-
   describe('#delete') do
     it("deletes an artist by id") do
       artist = Artist.new({:name => "Outkast", :id => nil})
@@ -96,6 +84,4 @@ end
       expect(Artist.all).to(eq([artist2]))
     end
   end
-
-
 end
